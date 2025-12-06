@@ -573,11 +573,31 @@
   </footer>
 
   <script>
-    // Set current year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  // Set current year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Scroll reveal for elements with .reveal
+  const revealElements = document.querySelectorAll(".reveal");
+
+  function handleScrollReveal() {
+    const triggerPoint = window.innerHeight * 0.85; // 85% of viewport height
+
+    revealElements.forEach((el) => {
+      const top = el.getBoundingClientRect().top;
+      if (top < triggerPoint) {
+        el.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", handleScrollReveal);
+  // Run once on load
+  handleScrollReveal();
+</script>
+
 </body>
 </html>
+
 
 
 
