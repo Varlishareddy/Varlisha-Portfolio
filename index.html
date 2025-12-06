@@ -5,304 +5,136 @@
   <title>Anugu Varlisha | Portfolio</title>
    <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, sans-serif;
-    }
+  /* ---- Animated gradient header (override old header style) ---- */
+header {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6, #60a5fa);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  color: #fff;
+  padding: 2.5rem 1rem 3.5rem;
+}
 
-    body {
-      background: #f5f7fb;
-      color: #222;
-      line-height: 1.6;
-    }
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
-    a {
-      color: #2563eb;
-      text-decoration: none;
-    }
+/* ---- Scroll reveal animation ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    header {
-      background: linear-gradient(135deg, #1d4ed8, #3b82f6);
-      color: #fff;
-      padding: 2rem 1rem 3rem;
-    }
+/* ---- Strong hover effects ---- */
+.btn-primary,
+.btn-outline {
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background 0.25s ease, color 0.25s ease;
+}
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.45);
+  background: #1d4ed8;
+  color: #ffffff;
+}
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
+.btn-outline:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
+  background: #ffffff;
+  color: #1d4ed8;
+}
 
-    nav .logo {
-      font-weight: 700;
-      font-size: 1.2rem;
-      letter-spacing: 0.05em;
-    }
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      font-size: 0.95rem;
-      flex-wrap: wrap;
-    }
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.2);
+}
 
-    nav ul li a {
-      color: #e5edff;
-      font-weight: 500;
-    }
+nav ul li a {
+  position: relative;
+}
 
-    .hero {
-      display: grid;
-      grid-template-columns: 2.2fr 1.3fr;
-      gap: 2rem;
-      align-items: center;
-    }
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.2rem;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
 
-    @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-    }
+nav ul li a:hover::after {
+  width: 100%;
+}
 
-    .hero-text h1 {
-      font-size: 2.3rem;
-      margin-bottom: 0.5rem;
-    }
+.tag {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
 
-    .hero-text h2 {
-      font-size: 1.15rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-      opacity: 0.9;
-    }
+.tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.25);
+  background: rgba(15, 23, 42, 0.35);
+}
 
-    .hero-text p {
-      max-width: 550px;
-      opacity: 0.95;
-      margin-bottom: 1.2rem;
-    }
+/* ---- GitHub project buttons ---- */
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.7rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #2563eb;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #2563eb;
+  background: #eff6ff;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease,
+    transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
+.github-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+}
 
-    .tag {
-      background: rgba(15, 23, 42, 0.2);
-      border-radius: 999px;
-      padding: 0.35rem 0.9rem;
-      font-size: 0.8rem;
-    }
+.github-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .btn {
-      padding: 0.6rem 1.3rem;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-weight: 500;
-      font-size: 0.95rem;
-      display: inline-block;
-      text-align: center;
-    }
-
-    .btn-primary {
-      background: #ffffff;
-      color: #1d4ed8;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.22);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: #e5edff;
-      border: 1px solid rgba(226, 232, 240, 0.7);
-    }
-
-    .hero-card {
-      background: rgba(15, 23, 42, 0.25);
-      border-radius: 1.2rem;
-      padding: 1.25rem 1.4rem;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.45);
-    }
-
-    .hero-card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.8rem;
-      opacity: 0.9;
-    }
-
-    .hero-card p {
-      font-size: 0.9rem;
-      opacity: 0.85;
-      margin-bottom: 0.3rem;
-    }
-
-    .hero-card small {
-      font-size: 0.78rem;
-      opacity: 0.8;
-    }
-
-    main {
-      margin-top: -1rem;
-      padding-bottom: 3rem;
-    }
-
-    section {
-      padding: 2.5rem 0 0;
-    }
-
-    section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1.2rem;
-      color: #111827;
-      position: relative;
-    }
-
-    section h2::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.35rem;
-      width: 2.5rem;
-      height: 3px;
-      border-radius: 999px;
-      background: #2563eb;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: 1rem;
-      padding: 1.2rem 1.3rem;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
-    }
-
-    .card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.4rem;
-      color: #111827;
-    }
-
-    .card p {
-      font-size: 0.9rem;
-    }
-
-    .muted {
-      font-size: 0.85rem;
-      color: #6b7280;
-      margin-bottom: 0.35rem;
-    }
-
-    .list-inline {
-      list-style: none;
-      padding-left: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      font-size: 0.87rem;
-    }
-
-    .pill {
-      background: #e5edff;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      background: #fff;
-      border-radius: 0.8rem;
-      overflow: hidden;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
-    }
-
-    th,
-    td {
-      padding: 0.75rem 0.9rem;
-      text-align: left;
-    }
-
-    thead {
-      background: #e5edff;
-    }
-
-    tbody tr:nth-child(even) {
-      background: #f9fafb;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-
-    .skills-grid h3 {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    footer {
-      margin-top: 3rem;
-      padding: 1.5rem 1rem 2.5rem;
-      background: #0f172a;
-      color: #e5edff;
-    }
-
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      font-size: 0.9rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .contact-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .contact-list li {
-      margin-bottom: 0.35rem;
-    }
-
-    .social-links a {
-      margin-right: 0.8rem;
-      font-size: 0.9rem;
-    }
-  </style>
 </head>
 <body>
   <!-- HEADER / HERO -->
