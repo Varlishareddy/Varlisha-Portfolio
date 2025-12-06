@@ -5,135 +5,6 @@
   <title>Anugu Varlisha | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
-</head>
-header {
-  background: linear-gradient(135deg, #1e3a8a, #3b82f6, #60a5fa);
-  background-size: 400% 400%;
-  animation: gradientMove 12s ease infinite;
-  color: #fff;
-  padding: 2.5rem 1rem 3.5rem;
-}
-
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* ---- Scroll reveal animation ---- */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ---- Strong hover effects ---- */
-.btn-primary,
-.btn-outline {
-  transition: transform 0.25s ease, box-shadow 0.25s ease,
-    background 0.25s ease, color 0.25s ease;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.45);
-  background: #1d4ed8;
-  color: #ffffff;
-}
-
-.btn-outline:hover {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
-  background: #ffffff;
-  color: #1d4ed8;
-}
-
-.card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.2);
-}
-
-nav ul li a {
-  position: relative;
-}
-
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -0.2rem;
-  width: 0;
-  height: 2px;
-  background: #ffffff;
-  border-radius: 999px;
-  transition: width 0.2s ease;
-}
-
-nav ul li a:hover::after {
-  width: 100%;
-}
-
-.tag {
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-.tag:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.25);
-  background: rgba(15, 23, 42, 0.35);
-}
-
-/* ---- GitHub project buttons ---- */
-.github-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-top: 0.7rem;
-  padding: 0.35rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid #2563eb;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #2563eb;
-  background: #eff6ff;
-  text-decoration: none;
-  transition: background 0.25s ease, color 0.25s ease,
-    transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.github-btn:hover {
-  background: #2563eb;
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
-}
-
-.github-icon {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 2px solid currentColor;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  font-weight: 700;
-}
 
 </head>
 <body>
@@ -443,6 +314,7 @@ nav ul li a:hover::after {
 </script>
 </body>
 </html>
+
 
 
 
